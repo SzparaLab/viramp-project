@@ -1,0 +1,24 @@
+<tool id="quality_trim" name="Trim Sequence by Quality">
+	<requirements><requirement type="package">seqtk toolkit</requirement></requirements>
+	<command interpreter="python">trim_quality.py -l $maxlen -i $input > $output</command>
+	<inputs>
+		<param type="data" format="fastq" name="input" label="File to trim" />
+		<param type="integer" name="maxlen" value="30" size="15" label="Maximally trim read down to this number of base pairs" />
+
+	</inputs>
+	<outputs>
+		<data name="output" format="fastq" label="${tool.name} on ${on_string}"/>
+	</outputs>
+
+	<help>
+
+**Trim Sequence by Quality**
+
+This tool trims low-quality bases from both ends of a sequence read using the Phred algorithm.
+
+Please consult your sequencing facility about paired-end read labels if you have trouble identifying them. 
+
+For details about this tool, please go to https://github.com/lh3/seqtk .
+
+	</help>
+</tool>

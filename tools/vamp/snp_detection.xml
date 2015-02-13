@@ -1,0 +1,57 @@
+<tool id='snp_det' name='SNV detection' version="1.0">
+	<command interpreter="python">snp_detection.py -r $rinput -t $tinput -o $output </command>
+
+	<inputs>
+		<param type="data" format="fasta" name="rinput" label='Reference genome' />
+		<param type="data" format="fasta" name="tinput" label='Target genome' help='Newly assembled genome for comparison'/> 
+	</inputs>
+
+	<outputs>
+		<data name='output' format='vcf' label="snps on ${on_string}.vcf"/>
+	</outputs>
+
+ <help>
+
+
+**How to detect SNVs**
+
+This Single Nucleotide Variation (SNV) detection tool is built upon the MUMmer package version 3.23, to align the target genome to the reference genome and identify SNVs between the two genomes.
+
+----------------------
+
+**Input and Output**
+
+**Input**:
+
+1. Reference genome in FASTA format
+
+2. Target genome (new assembly or other genome sequence you want to compare with the reference) in FASTA format
+
+**Output**:
+A VCF format SNV file
+
+----------------------
+
+**Output example**::
+
+	#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO
+	Reference      1700    nucmer  T       C       0       PASS    .
+	Reference      1704    nucmer  G       T       0       PASS    .
+	Reference      1867    nucmer  G       A       0       PASS    .
+	Reference      1909    nucmer  T       G       0       PASS    .
+	Reference      2239    nucmer  C       T       0       PASS    .
+	Reference      2463    nucmer  C       CC      0       PASS    .
+	Reference      2466    nucmer  A       G       0       PASS    .
+	Reference      2467    nucmer  T       C       0       PASS    .
+	Reference      2558    nucmer  AAG     A       0       PASS    .
+	Reference      2568    nucmer  G       T       0       PASS    .
+	Reference      2731    nucmer  T       C       0       PASS    .
+
+---------------------
+
+**Reference**
+
+For more details about MUMmer package, please go to http://mummer.sourceforge.net/
+ </help>
+
+</tool>

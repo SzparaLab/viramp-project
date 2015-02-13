@@ -1,0 +1,26 @@
+<tool id="base_trim" name="Trim Sequence by Bases">
+	<requirements><requirement type="package">seqtk toolkit</requirement></requirements>
+	<command>seqtk trimfq -b $leftlen -e $rightlen $input > $output </command>
+	<inputs>
+		<param type="data" format="fastq" name="input" label="File to trim" />
+		<param type="integer" name="leftlen" size="15" value="0" label="Number of bases trim from left" />
+		<param type="integer" name="rightlen" size="15" value="0" label="Number of bases trim from right" />
+
+	</inputs>
+	<outputs>
+		<data name="output" format="fastq" />
+	</outputs>
+
+	<help>
+
+
+**Alternative Read Quality Triming Tool**
+
+This tool trims a defined number of bases from the left and/or the right end of a sequence read.
+
+Please consult your sequencing facility about paired-end read labels if you have trouble identifying them 
+
+For details about this tool, please go to https://github.com/lh3/seqtk
+
+	</help>
+</tool>

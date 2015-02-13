@@ -1,0 +1,73 @@
+<tool id='spades' name="SPAdes" version="2.5.1">
+<command interpreter="python"> SPAdes.py -k $khmer -o $output -f $fmt 
+				#if $varExists('pinput'):
+				-p $pinput
+				#end if
+				#if $varExists('sinput'):
+				-s $sinput
+				#end if
+				</command>
+
+ <inputs>
+ <conditional name="single_paired" >
+        <param type="select" name="datatype" label="input format">
+                <option value="paired">Interleaved paired-end reads</option>
+                <option value="single">Single-end reads</option>
+                <option value="both">Interleaved paired-end reads AND Single-end reads</option>
+        </param>
+
+        <when value="paired">
+                <param type="data" format="fasta,fastq" name="pinput" label= "Input file"/>
+        </when>
+        
+        <when value="single">
+                <param type="data" format="fasta,fastq" name="sinput" label="Input file" />
+        </when>
+
+        <when value="both">
+                <param type="data" format="fasta,fastq" name="pinput" label="Paired-end input file" help="only reads shorter than 500bp are accepted" />
+                <param type="data" format="fasta,fastq" name="sinput" label="Single-end input file" help="only reads shorter than 500bp are accepted"/>
+        </when>
+ </conditional>
+	<param type='select' name="fmt" label='Data format'>
+		<option value='fasta'>FASTA</option>
+		<option value='fastq'>FASTQ</option>
+	</param>
+
+	<param type="text" name="khmer" size="30" value="35,45,55" label="K-mer size" help="K-mers used in the de novo assemlbly"/>
+ </inputs>
+
+ <outputs>
+	<data name="output" format="fasta" label="contig file from SPAdes on ${on_string}.fa" work_from_dir="spades_sc.fa" />
+ </outputs>
+
+ <help>
+
+**What is SPAdes**
+
+SPAdes (St. Petersburg genome assembler) is also a de Bruijn graph based de novo assembler, which is provided here as an alternative to the default velvet assembler.  Other than standard NGS datasets, SPAdes specializes in single-cell multiple displacement amplification (MDA) bacterial assemblies, which are more akin to viral  genome assemblies than to large eukaryotic genome assemblies.  At times, SPAdes performs better than other method for de novo assembly of viral genomes. We encourage users to try all of the de novo assemblers provided here and to compare the results.  The assemblers could perform differently depending on the dataset and genome under study.
+
+For more details about SPAdes, please go to http://bioinf.spbau.ru/spades
+
+---------------
+
+**What to input**
+
+Here we require that you combine datasets of a similar kind into one file and submit at most one single-end file and one paired-end file. This means if you have the paired-end reads separated into two different files (e.g forward and reverse, as outputted by Illumina sequencers), you will need to combine them together into one interleaved file. We provide a tool for this task in the **UTILITY** section.
+
+Please fill one or more odd numbers as the k-mer size, separated by commas(no spaces).  By default the k-mers are set to be "21,33,55", as recommended by the SPAdes manual.  
+
+**Notice** k-mer size is very critical in de novo assembly. No single k-mer is a best choice, the performance depends on various factor including read length and coverage.  If the run fail or the result is not what you expected, we advise the user might try different k-mers.
+
+--------------
+
+**Reference**
+
+Anton Bankevich, Sergey Nurk, Dmitry Antipov, Alexey A. Gurevich, Mikhail Dvorkin, Alexander S. Kulikov, Valery M. Lesin, Sergey I. Nikolenko, Son Pham, Andrey D. Prjibelski, Alexey V. Pyshkin, Alexander V. Sirotkin, Nikolay Vyahhi, Glenn Tesler, Max A. Alekseyev, and Pavel A. Pevzner. SPAdes: A New Genome Assembly Algorithm and Its Applications to Single-Cell Sequencing. Journal of Computational Biology 19(5) (2012), 455-477. doi:10.1089/cmb.2012.0021
+
+ </help>
+
+
+
+</tool>
+
