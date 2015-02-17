@@ -7,10 +7,10 @@
 
  <section name="Entire Pipeline" id="runforall">
    <tool file="vamp/quick_assemble.xml"/>
-   <tool file="vamp/quick_assemble_snpEff.xml" />
+   <tool file="vamp/quick_assemble_single_end.xml" />
  </section>
 
- <section name="Vamp" id="vamp">
+ <section name="VirAmp" id="vamp">
 
    <label text="Quality Control" id="quality" />
     <tool file="vamp/trim_quality.xml" />
@@ -21,9 +21,12 @@
 
    <label text="De novo contig assembling" id="velvet" />
     <tool file="vamp/velvet.xml" />
+    <tool file="vamp/SPAdes.xml" />
+    <tool file="vamp/vicuna.xml" />
 
    <label text="Scaffolding" id="AMOScmp" />
     <tool file="vamp/AMOScmp.xml" />
+    <tool file="vamp/SSPACE.xml" />
 
    <label text="Assembly Assessment" id="quast" />
     <tool file="vamp/quast_main.xml" />
@@ -32,19 +35,15 @@
     <tool file="vamp/snp_detection.xml" />
     <tool file="vamp/inexact_repeats.xml" />
     <tool file="vamp/tandem_repeats.xml"/>
-    <tool file="vamp/snpEff_annotation.xml" />
 <!--
-   <label text="SnpEff tools" id="snpEff_tools" />
-    <tool file="snpEff/galaxy/snpEff.xml" />
-    <tool file="snpEff/galaxy/snpEff_download.xml" />
-    <tool file="snpEff/galaxy/snpSift_annotate.xml" />
-    <tool file="snpEff/galaxy/snpSift_caseControl.xml" />
-    <tool file="snpEff/galaxy/snpSift_int.xml" />
+    <tool file="vamp/snpEff_annotation.xml" />
 -->
 
  <label text="Utility" id="utility"/>
-   <tool file="utility/snp2vcf.xml" />
    <tool file="utility/merge_pe.xml" />
-
+   <tool file="vamp/make_linear.xml" />
+   <tool file="utility/bwa_wrapper.xml" />
+   <tool file="vamp/circos_contigs.xml" />
+   <tool file="utility/host_contamination_rm.xml" />
  </section>
 </toolbox>
