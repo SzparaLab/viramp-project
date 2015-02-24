@@ -1,37 +1,37 @@
 Post-Assembly Process: Assessment and Variation Analysis
 =====================
 
-VIRAmp not only provides all the process related with assembly, the platform also integrates multiple tools for post-assembly process, including quality assessment and variation analysis.
+VIRAmp not only provides all the processes related with assembly, the platform also integrates multiple tools for post-assembly processing, including quality assessment and variation analysis.
 
 QUAST REPORT
 ------------
 
-It is important to evaluate how robust the new assembly is, before feed into the downstream functional analysis.  VIRAmp first provides a report of common assembly evaluation metrics based on comparing with reference. A detailed `QUAST report <http://bioinf.spbau.ru/quast>`_ can be downloaded.
+It is important to evaluate how robust the new assembly is, before feeded it into the downstream functional analysis.  VIRAmp first provides a report of common assembly evaluation metrics based on comparisons with reference. A detailed `QUAST report <http://bioinf.spbau.ru/quast>`_ can be downloaded.
 
-The input is the reference genome and new assembly.
+The input is the reference genome and newly created assembly.
 
 .. image:: assess-pic/quast-input.png
 
-Primary output is summary of common assembly evaluation metrics
+Primary output is a summary of common assembly evaluation metrics.
 
 .. image:: assess-pic/quast-basic.png
 
-Alternatively, a full report of QUAST report could be downloaded for more details.
+Alternatively, a full QUAST report can be downloaded for more details.
 
 .. image:: assess-pic/quast-download.png
 
-Unzip and open the report at local folder
+Unzip and open the report.
 
 .. image:: assess-pic/quast-unzip.png
 
-A demonstration of QUAST plot
+A demonstration of a QUAST plot:
 
 .. image:: assess-pic/quast-demo.png
 
 Assembly-Reference Alignment
 ----------------------------
 
-VIRamp provide information of the difference between the reference and new assembly based on the MUMmer alignment.  Coordinates and percentage identity is provided for each aligned region between two sequences.  It helps the users to identify large INDELs as well as other complex structure and variations. Table 1 demonstrates an example of the comparison report.
+VIRamp provides information about the difference between the reference and new assembly based on the MUMmer alignment.  Coordinates and percentage identities are provided for each aligned region between two sequences.  It helps the users to identify large INDELs as well as other complex structure and variations. Table 1 demonstrates an example of the comparison report.
 
 .. image:: assess-pic/ref-assembly.png
 
@@ -52,11 +52,11 @@ With the alignment between assembly and reference, SNP information is also provi
 Repeat and Tandem repeat analysis
 ---------------------------------
 
-By aligning the assembly against itself, VIRAmp also provides repeat information, starting coordinates and length is provided based on the alignment.
+By aligning the assembly against itself, VIRAmp also provides repeat and tandem repeat information. The starting coordinates and length are dervied from this alignment.
 
 .. image:: assess-pic/tandem-repeat.png
 
 BWA aligner
 -----------
 
-Besides all the specific tools listed above, general tools like `bwa <http://bio-bwa.sourceforge.net/>`_ is also provided for use based on users' own creation. 
+Besides all the specific tools listed above, general tools like `bwa <http://bio-bwa.sourceforge.net/>`_ are also provided for use based on users' own needs. 
