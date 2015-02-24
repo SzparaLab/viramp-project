@@ -3,38 +3,36 @@
 Login to your VirAmp instance and start the server
 ==================================================
 
-At this point you have successfully owned your own version of VirAmp instance, so what's next?
+At this point you have successfully launched your own version of the VirAmp instance, so what's next?
 
 Start exploring the VirAmp platform
 ------------------------------------
 
-Open viramp from browser, type in public_IP:8080 (for example, the demo is viramp.com:8080), which public_IP is the IP assigned to your instance, by default the server is open to public via port 8080
+Open viramp from a browser, typing in public_IP:8080 (for example, the demo is viramp.com:8080). The public_IP is the IP assigned to your instance, and by default the server is open to public via port 8080.
 
 .. image:: viramp-doc/viramp-web.png
 
 
 .. _inst_login_ref:
 
-(optional) Log in to the new instance
+Log in to the new instance
 --------------------------------------
-
-Alternatively, for experienced users, one can also modify the system based on the the specific requirement.
  
-An instruction and overview of the basic steps and parameters you need to login to the instance is provided at the console
+Instructions and an overview of the basic steps and parameters you need to login to the instance are provided at the console.
 
 .. image:: viramp-doc/connect-info.png
 
-Hit the "Connect" buttom to view information you need for login to the backend of the system
+Hit the "Connect" buttom to view information you need to login to the backend of the system.
 
 .. image:: viramp-doc/connect.png
 
 Start your terminal and type the following command:
 
-        ``chmod 400 inst-demo.pem``
+        ``chmod 400 myPemName.pem``
 
 Connect to your instance using your public IP:
 
-        ``ssh -i inst-demo.pem ubuntu@viramp.com``
+        ``ssh -i myPemName.pem ubuntu@public_IP``
 
 Change to the galaxy directory:
 
@@ -44,22 +42,12 @@ Change viramp settings:
 
         ``vi universe_wsgi.ini``
 
+	Line 596: admin_users = dwr19@psu.edu should be changed to reflect the current administrators email address
+	Line 662: ftp_upload_site = viramp.com should be changed from viramp.com to your public ip address
+
 Start the viramp server:
 
-        ``sh run.sh``
+        ``screen``
+	``./run.sh``
+	``CTRL-a-d``
 
-(optional) FTP configuration for large dataset uploading
-----------------------------------------------
-
-Galaxy's generic uploading function cannot handle files larger than 2GB properly.  Use FTP to upload data instead. ProFTPd has been preinstalled in the instance, and most of the configuration is already done, but users still may need to log in to the instance for some change.
-
-* Log in to the instance with instructions showing at the :ref:`above section <inst_login_ref>`.
-
-* Change to galaxy home directory
-        ``cd /mnt/galaxy/galaxy-dist``
-
-* Edit the config file (`universe_wsgi.ini`), change the `ftp_upload_site` parameter to the IP address of the instance.
-
-* The FTP configuration file is located at `/usr/local/etc`. In general, it has been configed to fit in the system.  Only experienced users may want to modify for further adjustment
-
-For more information about general ftp configuration on Galaxy, please visit the `Galaxy wiki <https://wiki.galaxyproject.org/Admin/Config/UploadviaFTP>`_
