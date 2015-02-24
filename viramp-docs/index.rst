@@ -25,17 +25,17 @@ Following is an overview of how VirAmp platform works:
         viramp_intro
         variation_assess
 
-**For install VirAmp on your local machine**
+**To install VirAmp on your local machine**
 
-* Download an `Galaxy <http://galaxyproject.org/>`_ and follow the `installation instruction <https://wiki.galaxyproject.org/Admin/GetGalaxy>`_
+* Download `Galaxy <http://galaxyproject.org/>`_ and follow the `installation instructions <https://wiki.galaxyproject.org/Admin/GetGalaxy>`_
 
-* The Script/vamp directory contains all the scripts and galaxy tool config files, place the folder under galaxy-dist/tools.
+* The Script/vamp directory contains all the scripts and galaxy tool config files. Place this folder under galaxy-dist/tools.
 
 * Place the tool_config.xml in config under 'galaxy-dist'.
 
-* Proftpd configuration as in 'config/proftpd.conf'.
+* Place the Proftpd configuration file (proftpd.conf) in 'config/proftpd.conf'.
 
-* To get everything running, your will need the following softwares installed:
+* To get everything running, you will need the following software installed:
 
 	* `seqtk <https://github.com/lh3/seqtk>`_
 	* `diginorm <http://ged.msu.edu/angus/diginorm-2012/tutorial.html>`_
