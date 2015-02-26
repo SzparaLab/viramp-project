@@ -8,7 +8,15 @@ Welcome to VirAmp's documentation!
 
 VirAmp is a galaxy-based system for fast virus genome assembly and variation discovery.
 
-Following is an overview of how VirAmp platform works:
+Quick Start Guide:
+
+1) Launch the latest version of the "Szpara_Viramp" AMI from Amazon Web Services
+
+2) SSH into the server and start the run.sh script using screen
+
+``./run.sh``
+
+Following is an overview of how the VirAmp platform works:
 
 .. image:: viramp-doc/pipeline_overview.png
 
@@ -17,11 +25,11 @@ Following is an overview of how VirAmp platform works:
 .. toctree::
         :maxdepth: 2
 
-	quickstart
-        ec2_import
-        viramp_login
         viramp_intro
         variation_assess
+        ec2_import
+        viramp_login
+
 
 **To install VirAmp on your local machine**
 
