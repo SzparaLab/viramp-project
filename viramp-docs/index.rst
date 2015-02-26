@@ -13,35 +13,19 @@ Quick Start Guide:
 1) Launch the latest version of the "Szpara_Viramp" AMI from Amazon Web Services
 
 2) SSH into the server and start the run.sh script using screen
-
 ``./run.sh``
 
-Following is an overview of how the VirAmp platform works:
-
-.. image:: viramp-doc/pipeline_overview.png
-
-**For VirAmp platform installation and usage on the Cloud:**
-
+Contents:
 .. toctree::
         :maxdepth: 2
-
+	
+	introduction
         viramp_intro
         variation_assess
         ec2_import
-        viramp_login
 
 
-**To install VirAmp on your local machine**
-
-* Download `Galaxy <http://galaxyproject.org/>`_ and follow the `installation instructions <https://wiki.galaxyproject.org/Admin/GetGalaxy>`_
-
-* The Script/vamp directory contains all the scripts and galaxy tool config files. Place this folder under galaxy-dist/tools.
-
-* Place the tool_config.xml in config under 'galaxy-dist'.
-
-* Place the Proftpd configuration file (proftpd.conf) in 'config/proftpd.conf'.
-
-* To get everything running, you will need the following software installed:
+* For further information on the individual tools VirAmp utilizes please see the following websites:
 
 	* `seqtk <https://github.com/lh3/seqtk>`_
 	* `diginorm <http://ged.msu.edu/angus/diginorm-2012/tutorial.html>`_
