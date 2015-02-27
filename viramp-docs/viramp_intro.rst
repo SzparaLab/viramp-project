@@ -17,7 +17,7 @@ Next we provide a chronological introduction of each step in the pipeline.
 
 Quality Control
 ---------------
-First, trim out the low quality bases of the input fastq files. This can be achieved either by removing low quality bases or trimming a certain length from each end.
+First, trim out the low quality bases of the input fastq files. This can be achieved by either by removing low quality bases or trimming a certain length from each end.
 
 .. image:: manual-pic/trim_qual.png
 
