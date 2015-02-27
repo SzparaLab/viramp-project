@@ -1,11 +1,11 @@
 Post-Assembly Analysis
 =====================
 
-VirAmp not only provides all the processes related with assembly, but also integrates multiple tools for post-assembly processing including quality assessment and variation analysis.
+VirAmp not only provides all the processes related to assembly, but also integrates multiple tools for post-assembly processing including quality assessment and variation analysis.
 
 QUAST REPORT
 ------------
-It is important to evaluate how robust the new assembly is before feeded it into the downstream functional analysis.  VirAmp first provides a report of common assembly evaluation metrics based on comparisons with the reference. A detailed `QUAST report <http://bioinf.spbau.ru/quast>`_ can be downloaded.
+It is important to evaluate how robust the new assembly is before it is feed into the downstream functional analysis.  VirAmp provides a report of common assembly evaluation metrics based on comparisons with the reference. A detailed `QUAST report <http://bioinf.spbau.ru/quast>`_ can be downloaded for further evaluation.
 
 The inputs required are the reference genome and newly created assembly.
 
@@ -37,25 +37,20 @@ VirAmp provides information about the difference between the reference and new a
 Circos graph visualization
 --------------------------
 
-Circos graphs are created as a way to help the user visualize the above alignment. Circos projects the assembled draft genome to the aligned part of reference, creating a straightforward visualization for large structural variation.
+Circos projects the assembled draft genome to the aligned part of the reference genome, creating a straightforward visualization for the above alignment and providing insight into large structural variations.
 
 .. image:: assess-pic/comparison_circos.png
 
 SNP analysis
 -------------
 
-With the alignment between assembly and reference, SNP information is also provided in VCF format.
+Using the alignment between the assembly and the reference, SNP information is  displayed in VCF format.
 
 .. image:: assess-pic/snp.png
 
 Repeat and Tandem repeat analysis
 ---------------------------------
 
-By aligning the assembly against itself, VirAmp also provides repeat and tandem repeat information. The starting coordinates and length are dervied from this alignment.
+By aligning the assembly against itself, VirAmp additionally provides repeat and tandem repeat information. The starting coordinates and lengths of the repeats are dervied from this alignment.
 
 .. image:: assess-pic/tandem-repeat.png
-
-BWA aligner
------------
-
-Besides all the specific tools listed above, general tools like `bwa <http://bio-bwa.sourceforge.net/>`_ are also provided for use.
