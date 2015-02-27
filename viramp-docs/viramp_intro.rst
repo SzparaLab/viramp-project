@@ -10,14 +10,10 @@ Two general pipelines are provided with a one-click option, one for paired-end d
 
 .. image:: manual-pic/paired_end_pipeline.png
 
-Step-by-Step Process
----------------------
-
-Next we provide a chronological introduction of each step in the pipeline.
 
 Quality Control
 ---------------
-First, trim out the low quality bases of the input fastq files. This can be achieved by either by removing low quality bases or trimming a certain length from each end.
+First, trim out the low quality bases of the input fastq files. This can be achieved by either removing low quality bases or trimming a certain length from each end.
 
 .. image:: manual-pic/trim_qual.png
 
@@ -29,19 +25,19 @@ Next, reduce coverage and bias using `Digital normalization <http://ged.msu.edu/
 
 `de novo` Contig assembly
 ------------------------
-Next, the pipeline assembles the short reads into longer contigs. By default the **One-click pipeline** uses `velvet <https://www.ebi.ac.uk/~zerbino/velvet/>`_. Two alternatives, `SPAdes <http://bioinf.spbau.ru/spades>`_ and `VICUNA <http://www.broadinstitute.org/scientific-community/science/projects/viral-genomics/vicuna>`_ , are provided and can be selected as either individual tools or through the advanced options in the one-click pipeline.
+Now, the pipeline assembles the short reads into longer contigs. By default the **One-click pipeline** uses `velvet <https://www.ebi.ac.uk/~zerbino/velvet/>`_. Two alternatives, `SPAdes <http://bioinf.spbau.ru/spades>`_ and `VICUNA <http://www.broadinstitute.org/scientific-community/science/projects/viral-genomics/vicuna>`_ , are provided and can be selected as either individual tools or through the advanced options in the one-click pipeline.
 
 .. image:: manual-pic/de-novo.png
 
 Reference-based scaffolding
 ---------------------------
-Next, the contigs are assembled into even longer `super-contigs`. This step is a modification of `AMOScmp <http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOScmp>`_ 
+The contigs are then assembled into even longer `super-contigs`. This step is a modification of `AMOScmp <http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOScmp>`_ 
 
 .. image:: manual-pic/amoscmp.png
 
 Reference-independent scaffolding
 ---------------------------------
-The next step extends the super-contigs and connects them using `SSPACE <http://www.baseclear.com/landingpages/basetools-a-wide-range-of-bioinformatics-solutions/sspacev12/>`_.  The pipeline will produce a draft genome as aa multi-fasta file usually containing 5~15 contigs which are listed in the same order as the reference.
+The next step extends the super-contigs and connects them using `SSPACE <http://www.baseclear.com/landingpages/basetools-a-wide-range-of-bioinformatics-solutions/sspacev12/>`_.  The pipeline will produce a draft genome as a multi-fasta file usually containing 5~15 contigs which are listed in the same order as the reference.
 
 .. image:: manual-pic/sspace.png
 
