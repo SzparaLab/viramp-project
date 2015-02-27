@@ -7,7 +7,7 @@ Select 'My Account/Console' on the top right if you already have an account; oth
 
 Go to the 'AWS Management Console' option, click the 'EC2' at upper left.
 
-Before importing the AMI, make sure you are in the right Availability zone. Amazon EC2 is hosted in multiple locations world-wide with multiple Availability zones, and resources cannot be replicated across regions until specified.  Our AMI is stored in region "US East(N. Virginia)". Check the upper right corner next to your account name, and make sure it's set at the correct region. If not, just click and select the correct one on from the dropdown menu.
+Before importing the AMI, make sure you are in the correct Availability zone. Amazon EC2 is hosted in multiple locations world-wide with multiple Availability zones, and resources cannot be replicated across regions until specified.  Our AMI is stored in region "US East(N. Virginia)". Check the upper right corner next to your account name, and make sure it's set at the correct region. If not, just click and select the correct one from the dropdown menu.
 
 Next, click the blue 'Launch Instance' button.
 
@@ -33,17 +33,7 @@ Step-4: Create Key-pairs
 -----------------------------
 .. image:: viramp-doc/key-pair.png
 
-You have nowsuccessfully launched your own version of the instance.  For information on logging in and starting your instance, please go to :ref:`VirAmp instance login <viramp_login_ref>`
-
-Login to your VirAmp instance and start the server
-----------------------------
-
-Open viramp from a browser, typing in public_IP:8080 (for example, the demo is \
-viramp.com:8080). The public_IP is the IP assigned to your instance, and by def\
-ault the server is open to public via port 8080.
-
-.. image:: viramp-doc/viramp-web.png
-
+You have now successfully launched your own version of the instance.  For information on logging in and starting your instance, please go to :ref:`VirAmp instance login <viramp_login_ref>`
 
 .. _inst_login_ref:
 

@@ -41,7 +41,7 @@ Next, the contigs are assembled into even longer `super-contigs`. This step is a
 
 Reference-independent scaffolding
 ---------------------------------
-This step extends the super-contigs and connects them using `SSPACE <http://www.baseclear.com/landingpages/basetools-a-wide-range-of-bioinformatics-solutions/sspacev12/>`_.  At the end of this step, the pipeline will produce a draft genome. This draft genome is a multi-fasta file usually containing 5~15 contigs which are listed in the same order as the reference.
+The next step extends the super-contigs and connects them using `SSPACE <http://www.baseclear.com/landingpages/basetools-a-wide-range-of-bioinformatics-solutions/sspacev12/>`_.  The pipeline will produce a draft genome as aa multi-fasta file usually containing 5~15 contigs which are listed in the same order as the reference.
 
 .. image:: manual-pic/sspace.png
 
