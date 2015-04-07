@@ -1,28 +1,24 @@
 Welcome to VirAmp's documentation!
 ==================================
 
-Viramp is a galaxy-based system for fast virus genome assembly and variation discovery.
+VirAmp is a galaxy-based system for fast virus genome assembly and variation discovery.
 
-The Script/vamp directory contains all the scripts and galaxy tool config files, place the folder under galaxy-dist/tools.
+Quick Start Guide:
 
-Place the tool_config.xml in config under 'galaxy-dist'.
+1) Launch the latest version of the "Szpara_Viramp" AMI from Amazon Web Services
 
-Proftpd configuration as in 'config/proftpd.conf'.
+2) SSH into the server and start the run.sh script using screen
+``./run.sh``
 
-To get everything running, your will need the following softwares installed:
+* For further information on the individual tools VirAmp utilizes please see the following websites:
 
-1. seqtk for quality trimming : https://github.com/lh3/seqtk
-2. diginorm for error correction and coverage reduction: http://ged.msu.edu/angus/diginorm-2012/tutorial.html
-3. velvet for de novo assembly: http://www.ebi.ac.uk/~zerbino/velvet/
-4. AMOS for reference guided scaffolding: http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOS
-5. Quast for assembly quality assessment: http://bioinf.spbau.ru/quast
-6. MUMmer for genome comparison and variation discovery: http://mummer.sourceforge.net/
-7. Circos for visualization: http://circos.ca/
-8. bioawk for interleaving paired end read files: https://github.com/lh3/bioawk
-
-For running the whole assembling pipeline at once run quick_assemble.py:
-
-    python quick_assemble.py -l read_1.fq -e read_2.fq -r refseq.fa -d out_dir
+	* `seqtk <https://github.com/lh3/seqtk>`_
+	* `diginorm <http://ged.msu.edu/angus/diginorm-2012/tutorial.html>`_
+	* `velvet <http://www.ebi.ac.uk/~zerbino/velvet/>`_
+	* `AMOS <http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOS>`_
+	* `Quast <http://bioinf.spbau.ru/quast>`_
+	* `MUMmer <http://mummer.sourceforge.net/>`_
+	* `Circos <http://circos.ca/>`_
 
 
 Detailed documentation at: viramp.readthedocs.org
