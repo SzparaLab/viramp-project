@@ -24,4 +24,4 @@ Quick Start Guide:
 This repository has been published in `GigaScience <http://www.gigasciencejournal.com/>`_  
 To access the repository as at time of publication, use commit SHA 5e8aaef12192165718c66d4919ed21bb308a4600.
 
-Detailed documentation at: `Read The Docs<http://viramp.readthedocs.org/>`_
+Detailed documentation at: `Read The Docs <http://viramp.readthedocs.org/>`_
