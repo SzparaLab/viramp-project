@@ -21,7 +21,7 @@ Quick Start Guide:
 	* `Circos <http://circos.ca/>`_
 
 
-This repository has been published in `GigaScience <www.gigasciencejournal.com/>`_  
+This repository has been published in [GigaScience](www.gigasciencejournal.com/)  
 To access the repository as at time of publication, use commit SHA 5e8aaef12192165718c66d4919ed21bb308a4600.
 
-Detailed documentation at: `Read The Docs <viramp.readthedocs.org>`_
+Detailed documentation at: [Read The Docs](viramp.readthedocs.org/)
