@@ -1,0 +1,436 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "viramp_workflow_pe", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset(Read-1)"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 158
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset(Read-1)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset(Read-2)"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 199.5, 
+                "top": 259
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset(Read-2)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset (Ref genome)"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 198, 
+                "top": 508
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset (Ref genome)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Trim Sequence by Quality", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 443.765625, 
+                "top": 115.890625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "quality_trim", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"__rerun_remap_job_id__\": null, \"maxlen\": \"\\\"30\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Trim Sequence by Quality", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 452, 
+                "top": 244
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "quality_trim", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"__rerun_remap_job_id__\": null, \"maxlen\": \"\\\"30\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "input2": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Merge Pair", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 673.5, 
+                "top": 173
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "merge_pe", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Reduce the coverage", 
+            "outputs": [
+                {
+                    "name": "seoutput", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "peoutput", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 861.265625, 
+                "top": 185.890625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "diginorm", 
+            "tool_state": "{\"__page__\": 0, \"pairflag\": \"\\\"-p\\\"\", \"cutoff\": \"\\\"10\\\"\", \"__rerun_remap_job_id__\": null, \"hashsize\": \"\\\"1e8\\\"\", \"hashnum\": \"\\\"4\\\"\", \"input\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "single_paired|pinput": {
+                    "id": 6, 
+                    "output_name": "peoutput"
+                }, 
+                "single_paired|sinput": {
+                    "id": 6, 
+                    "output_name": "seoutput"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Velvet", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1075.265625, 
+                "top": 182.890625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "de_novo_asmbl", 
+            "tool_state": "{\"__page__\": 0, \"khmer\": \"\\\"35,45,55,65\\\"\", \"single_paired\": \"{\\\"datatype\\\": \\\"both\\\", \\\"pinput\\\": null, \\\"sinput\\\": null, \\\"__current_case__\\\": 2}\", \"pinput\": \"null\", \"sinput\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.2.10", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "cinput": {
+                    "id": 7, 
+                    "output_name": "output"
+                }, 
+                "finput": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Reference-guided Scaffolding", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 401.59375, 
+                "top": 378.15625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "amoscmp", 
+            "tool_state": "{\"__page__\": 0, \"pinput\": \"null\", \"cinput\": \"null\", \"finput\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "3.1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "fcontigs": {
+                    "id": 8, 
+                    "output_name": "output"
+                }, 
+                "linput": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "rinput": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Scaffolding pre-assembled contigs using paired-read data", 
+            "outputs": [
+                {
+                    "name": "sspace_res", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 808.546875, 
+                "top": 396.0625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "sspace", 
+            "tool_state": "{\"__page__\": 0, \"settings\": \"{\\\"dset\\\": \\\"sp_default\\\", \\\"__current_case__\\\": 1}\", \"fmt\": \"\\\"fasta\\\"\", \"fcontigs\": \"null\", \"linput\": \"null\", \"ins\": \"\\\"350\\\"\", \"rinput\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "2.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "rinput": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "targetseq": {
+                    "id": 9, 
+                    "output_name": "sspace_res"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Quality Assessment For Genome Assembling", 
+            "outputs": [
+                {
+                    "name": "report", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 675.5, 
+                "top": 897
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "quast_stat", 
+            "tool_state": "{\"rinput\": \"null\", \"targetseq\": \"null\", \"__rerun_remap_job_id__\": null, \"min_contig\": \"\\\"500\\\"\", \"__page__\": 0}", 
+            "tool_version": "2.2", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "rinput": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "tinput": {
+                    "id": 9, 
+                    "output_name": "sspace_res"
+                }
+            }, 
+            "inputs": [], 
+            "name": "SNV detection", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1115.3125, 
+                "top": 558.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "snp_det", 
+            "tool_state": "{\"rinput\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"tinput\": \"null\"}", 
+            "tool_version": "1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "rinput": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "tinput": {
+                    "id": 9, 
+                    "output_name": "sspace_res"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Create Circos Graph for Draft Genome Assemblies visualization", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1115.8125, 
+                "top": 710.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "circos", 
+            "tool_state": "{\"rinput\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"tinput\": \"null\"}", 
+            "tool_version": "0.64", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "refseq": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "target": {
+                    "id": 9, 
+                    "output_name": "sspace_res"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Draft vs. Reference genome comparison", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1116.8125, 
+                "top": 866.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "MUMmerCMP", 
+            "tool_state": "{\"__page__\": 0, \"refseq\": \"null\", \"__rerun_remap_job_id__\": null, \"outformat\": \"\\\"ref\\\"\", \"target\": \"null\"}", 
+            "tool_version": "1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
